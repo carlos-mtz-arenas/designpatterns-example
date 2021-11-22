@@ -1,7 +1,7 @@
 package mx.javasample.designpatterns.controller;
 
 import mx.javasample.designpatterns.dto.ProductRecommendationDto;
-import mx.javasample.designpatterns.recommendations.facades.ProductRecommendationFacade;
+import mx.javasample.designpatterns.service.ProductRecommendationService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +14,12 @@ import java.util.Collection;
 @RestController
 public class ProductRecommendationsController {
 
-    @Resource(name = "productRecommendationFacade")
-    private ProductRecommendationFacade productRecommendationFacade;
+    @Resource(name = "productRecommendationService")
+    private ProductRecommendationService productRecommendationService;
 
     @GetMapping("/{userId}")
     public Collection<ProductRecommendationDto> getRecommendationsForUser(
             @PathVariable(required = false) final String userId) {
-        return productRecommendationFacade.getRecommendedProductsForUser(userId);
+        return productRecommendationService.getRecommendedProductsForUser(userId);
     }
 }

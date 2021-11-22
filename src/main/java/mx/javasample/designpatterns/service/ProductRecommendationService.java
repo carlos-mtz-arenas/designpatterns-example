@@ -1,10 +1,10 @@
-package mx.javasample.designpatterns.recommendations.facades;
+package mx.javasample.designpatterns.service;
 
 import mx.javasample.designpatterns.dto.ProductRecommendationDto;
 
 import java.util.Collection;
 
-public interface ProductRecommendationFacade {
+public interface ProductRecommendationService {
     /**
      * Gets the recommended products for the given user.
      *
