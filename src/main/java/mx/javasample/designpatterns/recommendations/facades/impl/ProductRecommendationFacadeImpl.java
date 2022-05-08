@@ -1,13 +1,14 @@
 package mx.javasample.designpatterns.recommendations.facades.impl;
 
-import mx.javasample.designpatterns.dto.ProductRecommendationDto;
-import mx.javasample.designpatterns.dto.ValidProductDto;
-import mx.javasample.designpatterns.mappers.Mapper;
-import mx.javasample.designpatterns.model.User;
+import mx.javasample.designpatterns.commerce.products.services.CommerceProductService;
+import mx.javasample.designpatterns.recommendations.dtos.ProductRecommendationDto;
+import mx.javasample.designpatterns.commerce.dtos.CommerceProductDto;
+import mx.javasample.designpatterns.core.mappers.Mapper;
+import mx.javasample.designpatterns.users.models.User;
 import mx.javasample.designpatterns.recommendations.exceptions.HttpClientException;
 import mx.javasample.designpatterns.recommendations.facades.ProductRecommendationFacade;
-import mx.javasample.designpatterns.recommendations.service.RecommendationClient;
-import mx.javasample.designpatterns.service.*;
+import mx.javasample.designpatterns.recommendations.services.RecommendationClient;
+import mx.javasample.designpatterns.users.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,12 +23,12 @@ public class ProductRecommendationFacadeImpl implements ProductRecommendationFac
     private final UserService userService;
     private final CommerceProductService commerceProductService;
     private final RecommendationClient recommendationClient;
-    private final Mapper<ValidProductDto, ProductRecommendationDto> validProduct2ProductRecommendationMapper;
+    private final Mapper<CommerceProductDto, ProductRecommendationDto> validProduct2ProductRecommendationMapper;
 
     public ProductRecommendationFacadeImpl(final UserService userService,
                                            final CommerceProductService commerceProductService,
                                            final RecommendationClient recommendationClient,
-                                           final Mapper<ValidProductDto, ProductRecommendationDto> validProduct2ProductRecommendationMapper) {
+                                           final Mapper<CommerceProductDto, ProductRecommendationDto> validProduct2ProductRecommendationMapper) {
         this.userService = userService;
         this.commerceProductService = commerceProductService;
         this.recommendationClient = recommendationClient;

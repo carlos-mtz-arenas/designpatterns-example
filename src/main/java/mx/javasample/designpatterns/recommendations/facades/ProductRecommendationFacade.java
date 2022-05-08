@@ -1,6 +1,6 @@
 package mx.javasample.designpatterns.recommendations.facades;
 
-import mx.javasample.designpatterns.dto.ProductRecommendationDto;
+import mx.javasample.designpatterns.recommendations.dtos.ProductRecommendationDto;
 
 import java.util.Collection;
 
