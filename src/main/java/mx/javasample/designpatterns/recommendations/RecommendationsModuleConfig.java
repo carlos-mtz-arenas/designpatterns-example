@@ -20,27 +20,6 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class RecommendationsModuleConfig {
 
-    @Value("${app.services.productRecommendation.url}")
-    private String productRecommendationsEndpoint;
-
-    @Bean
-    @Profile("mocks")
-    public RecommendationClient recommendationClient() {
-        return new MockRecommendationClient();
-    }
-
-    @Bean
-    @Profile("!mocks")
-    public RestTemplate recommendationServiceClient() {
-        return new RestTemplate();
-    }
-
-    @Bean
-    @Profile("!mocks")
-    public RecommendationClient recommendationClient(final RestTemplate recommendationServiceClient) {
-        return new RecommendationClientImpl(recommendationServiceClient, productRecommendationsEndpoint);
-    }
-
     @Bean
     public ValidProduct2RecommendationMapper validProduct2RecommendationMapper() {
         return new ValidProduct2RecommendationMapper();
